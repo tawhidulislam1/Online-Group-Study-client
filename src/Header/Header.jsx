@@ -1,13 +1,28 @@
 import { Link } from "react-router-dom";
 import logo from "../assets/images.png";
+import { useContext } from "react";
+import AuthContext from "../Context/AuthContext";
+import { toast } from "react-toastify";
 
 
 const Header = () => {
+    const { user, logOut } = useContext(AuthContext)
+    console.log(user);
+    const handleLogOut = () => {
+        logOut()
+            .then(() => {
+                toast.success("YOur are logout now");
+            })
+            .catch((error) => {
+                console.error("Logout failed:", error);
+            });
+    }
     const links = <>
         <li><a>Item 1</a></li>
         <li><a>Item 3</a></li>
     </>
     return (
+
         <div className="navbar bg-base-100">
             <div className="navbar-start">
                 <div className="dropdown">
@@ -41,7 +56,27 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link to={'/login'} className="btn btn-accent">Login</Link>
+                {user && user?.email ? (
+                    <>
+                        <button onClick={handleLogOut} className="btn">Logout</button>
+                        <div className="relative">
+                            <img
+                                src={user?.photoURL}
+                                title={user?.displayName}
+                                alt="User Avatar"
+                                className="rounded-full w-14 ml-2"
+                            />
+
+                        </div>
+                    </>
+                ) : (
+                    <>
+                        <Link to={'/login'} className="btn btn-accent">Login</Link>
+                        <Link to={'/register'} className="btn bg-red-500 text-white mr-2">Register</Link>
+                    </>
+                )}
+
+
             </div>
         </div>
     );
