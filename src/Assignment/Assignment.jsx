@@ -1,11 +1,12 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import AuthContext from "../Context/AuthContext";
 import Swal from "sweetalert2";
 
 const Assignment = () => {
     const [assignments, setAssignments] = useState([])
+    const navigate = useNavigate();
 
     const { user } = useContext(AuthContext)
     const userEmail = user?.email
@@ -54,6 +55,19 @@ const Assignment = () => {
                     })
             }
         });
+
+    }
+    const handleUpdate = (id, email) => {
+        if (userEmail !== email) {
+            Swal.fire({
+                icon: "error",
+                title: "Sorry",
+                text: "Your Can't Edit This. Becasue You Can't Create This!",
+            });
+            return;
+        }
+        return navigate(`/update-assingment/${id}`);
+
     }
     return (
         <div className="my-10">
@@ -101,7 +115,7 @@ const Assignment = () => {
                                             </button></Link>
                                         <button
                                             className="btn btn-sm btn-primary"
-                                        // onClick={() => onUpdate(assignment)}
+                                            onClick={() => handleUpdate(assignment._id, assignment.email)}
                                         >
                                             Update
                                         </button>
