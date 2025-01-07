@@ -51,6 +51,7 @@ const DoAsssignment = () => {
                         name="docslink"
                         placeholder="Enter assignment title"
                         className="input text-black input-bordered w-full"
+                        required
                     />
                     <input
                         type="hidden"
@@ -75,6 +76,7 @@ const DoAsssignment = () => {
                         placeholder="Enter assignment description"
                         className="textarea  text-black textarea-bordered w-full"
                         rows="4"
+                        required
                     ></textarea>
                 </div>
 
