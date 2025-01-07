@@ -19,7 +19,7 @@ const Header = () => {
     }
     const links = <>
         <li><NavLink to={"/"}>Home</NavLink></li>
-        <li><a>Item 3</a></li>
+        <li><NavLink to={"/assignment"}>Assignment</NavLink></li>
     </>
     return (
 
