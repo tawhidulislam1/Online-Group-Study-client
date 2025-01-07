@@ -1,11 +1,60 @@
 import axios from "axios";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import AuthContext from "../Context/AuthContext";
+import Swal from "sweetalert2";
 
 const Assignment = () => {
     const [assignments, setAssignments] = useState([])
-    axios.get('http://localhost:5000/assignment')
-        .then(res => setAssignments(res.data))
+
+    const { user } = useContext(AuthContext)
+    const userEmail = user?.email
+    useEffect(() => {
+        axios.get('http://localhost:5000/assignment')
+            .then(res => setAssignments(res.data));
+    }, [])
+
+
+
+    const handleDelete = (id, email) => {
+        if (userEmail !== email) {
+            Swal.fire({
+                icon: "error",
+                title: "Sorry",
+                text: "Your Can't Delete This. Cuz You Can't Create This!",
+            });
+            return;
+        }
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                fetch(`http://localhost:5000/assignment/${id}`, {
+                    method: "DELETE",
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        if (data.deletedCount > 0) {
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your file has been deleted.",
+                                icon: "success"
+                            });
+                            const remaning = assignments.filter(cof => cof._id !== id);
+                            setAssignments(remaning)
+                        }
+                    })
+            }
+        });
+    }
     return (
         <div className="my-10">
             <div>
@@ -58,7 +107,7 @@ const Assignment = () => {
                                         </button>
                                         <button
                                             className="btn btn-sm btn-error"
-                                        // onClick={() => onDelete(assignment)}
+                                            onClick={() => handleDelete(assignment._id, assignment.email)}
                                         >
                                             Delete
                                         </button>
