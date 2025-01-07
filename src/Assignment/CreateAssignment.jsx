@@ -1,10 +1,14 @@
 
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Swal from "sweetalert2";
+import AuthContext from "../Context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 
 const CreateAssignment = () => {
     const [dueDate, setDueDate] = useState("");
+    const { user } = useContext(AuthContext)
+    const navigate = useNavigate()
     console.log(dueDate);
     const handleSubmit = e => {
         e.preventDefault()
@@ -13,7 +17,7 @@ const CreateAssignment = () => {
         console.log(formData);
         const initialData = Object.fromEntries(formData.entries())
         console.log(initialData);
-        fetch('http://localhost:5000/assigment', {
+        fetch('http://localhost:5000/assignment', {
             method: "POST",
             headers: {
                 "content-type": "application/json"
@@ -31,7 +35,7 @@ const CreateAssignment = () => {
                         showConfirmButton: false,
                         timer: 1500
                     });
-                    // navigate('/posted-jobs')
+                    navigate('/assignment')
                 }
             })
     }
@@ -45,6 +49,13 @@ const CreateAssignment = () => {
                     <input
                         type="text"
                         name="title"
+                        placeholder="Enter assignment title"
+                        className="input text-black input-bordered w-full"
+                    />
+                    <input
+                        type="hidden"
+                        name="email"
+                        value={user.email}
                         placeholder="Enter assignment title"
                         className="input text-black input-bordered w-full"
                     />
