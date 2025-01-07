@@ -1,7 +1,7 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const AssignmentDetails = () => {
-    const { thumbnailUrl, title, marks, difficulty, description, dueDate } = useLoaderData();
+    const { _id, thumbnailUrl, title, marks, difficulty, description, dueDate } = useLoaderData();
 
     return (
         <div className="max-w-3xl mx-auto p-6 bg-base-100 shadow-md rounded-lg border border-gray-200 mt-10">
@@ -47,7 +47,8 @@ const AssignmentDetails = () => {
 
             {/* Back Button */}
             <div className="text-right">
-                <button className="btn btn-primary w-full">Take Assignment</button>
+                <Link to={`/take-assignment/${_id}`}>
+                    <button className="btn btn-primary w-full">Take Assignment</button></Link>
             </div>
         </div>
     );

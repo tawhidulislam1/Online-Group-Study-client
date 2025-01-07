@@ -10,6 +10,7 @@ import CreateAssignment from "../Assignment/CreateAssignment";
 import AssignmentDetails from "../Assignment/AssignmentDetails";
 import UpdateAssignment from "../Assignment/UpdateAssignment";
 import Error from "../Error/Error";
+import DoAsssignment from "../Assignment/DoAsssignment";
 
 const router = createBrowserRouter([
     {
@@ -44,6 +45,11 @@ const router = createBrowserRouter([
             {
                 path: '/update-assingment/:id',
                 element: <UpdateAssignment></UpdateAssignment>,
+                loader: ({ params }) => fetch(`http://localhost:5000/assignment/${params.id}`)
+            },
+            {
+                path: '/take-assignment/:id',
+                element: <DoAsssignment></DoAsssignment>,
                 loader: ({ params }) => fetch(`http://localhost:5000/assignment/${params.id}`)
             },
         ]
