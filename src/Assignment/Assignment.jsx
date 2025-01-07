@@ -9,11 +9,11 @@ const Assignment = () => {
     return (
         <div className="my-10">
             <div>
-                <h3 className="text-3xl text-center text-black font-bold">All assignment {assignments.length}</h3>
+                <h3 className="text-3xl text-center text-black font-bold">All Assignment</h3>
                 <div className="text-right">
                     <Link to={'/create-assignment'} className="btn btn-neutral text-right">Create Assignment</Link>
                 </div>
-                <div  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
                     {
                         assignments.map(assignment => <div key={assignment._id}>
 
@@ -44,12 +44,12 @@ const Assignment = () => {
                                         </span>
                                     </p>
                                     <div className="card-actions justify-end mt-4">
-                                        <button
-                                            className="btn btn-sm btn-outline"
-                                        // onClick={() => onView(assignment)}
-                                        >
-                                            View
-                                        </button>
+                                        <Link to={`/assignment-details/${assignment._id}`}>
+                                            <button
+                                                className="btn btn-sm btn-outline"
+                                            >
+                                                View
+                                            </button></Link>
                                         <button
                                             className="btn btn-sm btn-primary"
                                         // onClick={() => onUpdate(assignment)}

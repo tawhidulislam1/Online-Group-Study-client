@@ -7,6 +7,7 @@ import Login from "../AuthPages/Login";
 import Register from "../AuthPages/Register";
 import Assignment from "../Assignment/Assignment";
 import CreateAssignment from "../Assignment/CreateAssignment";
+import AssignmentDetails from "../Assignment/AssignmentDetails";
 
 const router = createBrowserRouter([
     {
@@ -32,6 +33,11 @@ const router = createBrowserRouter([
             {
                 path: '/create-assignment',
                 element: <CreateAssignment></CreateAssignment>
+            },
+            {
+                path: '/assignment-details/:id',
+                element: <AssignmentDetails></AssignmentDetails>,
+                loader: ({ params }) => fetch(`http://localhost:5000/assignment/${params.id}`)
             },
         ]
     },
