@@ -1,9 +1,14 @@
+import Faq from "./Faq";
+import Feature from "./Feature";
+import Hero from "./Hero";
 
 
 const Home = () => {
     return (
         <div>
-            <h3>Home</h3>
+            <Hero></Hero>
+            <Feature></Feature>
+            <Faq></Faq>
         </div>
     );
 };

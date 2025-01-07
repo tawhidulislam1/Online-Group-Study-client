@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/images.png";
 import { useContext } from "react";
 import AuthContext from "../Context/AuthContext";
@@ -18,7 +18,7 @@ const Header = () => {
             });
     }
     const links = <>
-        <li><a>Item 1</a></li>
+        <li><NavLink to={"/"}>Home</NavLink></li>
         <li><a>Item 3</a></li>
     </>
     return (
@@ -60,12 +60,14 @@ const Header = () => {
                     <>
                         <button onClick={handleLogOut} className="btn">Logout</button>
                         <div className="relative">
-                            <img
-                                src={user?.photoURL}
-                                title={user?.displayName}
-                                alt="User Avatar"
-                                className="rounded-full w-14 ml-2"
-                            />
+                            <div className="tooltip" data-tip={user?.displayName}>
+                                <img
+                                    src={user?.photoURL}
+                                    title={user?.displayName}
+                                    alt="User Avatar"
+                                    className="rounded-full w-14 ml-2"
+                                />
+                            </div>
 
                         </div>
                     </>
