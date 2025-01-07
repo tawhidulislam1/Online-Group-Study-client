@@ -9,6 +9,7 @@ import Assignment from "../Assignment/Assignment";
 import CreateAssignment from "../Assignment/CreateAssignment";
 import AssignmentDetails from "../Assignment/AssignmentDetails";
 import UpdateAssignment from "../Assignment/UpdateAssignment";
+import Error from "../Error/Error";
 
 const router = createBrowserRouter([
     {
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
                 loader: ({ params }) => fetch(`http://localhost:5000/assignment/${params.id}`)
             },
         ]
+    },
+    {
+        path: "*",
+        element: <Error></Error>,
     },
 ]);
 
