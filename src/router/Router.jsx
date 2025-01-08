@@ -12,6 +12,7 @@ import UpdateAssignment from "../Assignment/UpdateAssignment";
 import Error from "../Error/Error";
 import DoAsssignment from "../Assignment/DoAsssignment";
 import PrivateRouter from "./PrivateRouter";
+import MyAttemptedAssignments from "../Assignment/myAttemptedAssignments";
 
 const router = createBrowserRouter([
     {
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
                 path: '/take-assignment/:id',
                 element: <PrivateRouter><DoAsssignment></DoAsssignment></PrivateRouter>,
                 loader: ({ params }) => fetch(`http://localhost:5000/assignment/${params.id}`)
+            },
+            {
+                path: '/attempted-assignments',
+                element: <PrivateRouter><MyAttemptedAssignments></MyAttemptedAssignments></PrivateRouter>,
             },
         ]
     },
