@@ -48,10 +48,10 @@ const MyAttemptedAssignments = () => {
                                         <div className="font-bold">{assignment.marks}</div>
                                     </td>
                                     <td>
-                                        <div className="font-bold">Null</div>
+                                        <div className="font-bold">{assignment.obtainMarks}</div>
                                     </td>
                                     <th>
-                                        <div className="font-bold">feedback</div>
+                                        <div className="font-bold">{assignment.feedback}</div>
 
                                     </th>
                                 </tr>

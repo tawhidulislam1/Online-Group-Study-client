@@ -1,10 +1,11 @@
 import { useContext } from "react";
 import AuthContext from "../Context/AuthContext";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const DoAsssignment = () => {
     const { user } = useContext(AuthContext)
+    const navigate = useNavigate()
     const userEmail = user?.email || "";
     const { id } = useParams();
     console.log(id);
@@ -35,7 +36,7 @@ const DoAsssignment = () => {
                         showConfirmButton: false,
                         timer: 1500
                     });
-                    // navigate('/my-application')
+                    navigate('/attempted-assignments')
                 }
             })
     }
