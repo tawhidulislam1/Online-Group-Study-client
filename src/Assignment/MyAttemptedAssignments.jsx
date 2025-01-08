@@ -17,54 +17,42 @@ const MyAttemptedAssignments = () => {
                     {/* head */}
                     <thead>
                         <tr>
-                            <th>
-                                <label>
-                                    <input type="checkbox" className="checkbox" />
-                                </label>
+                            <th> #
                             </th>
-                            <th>Company Info</th>
-                            <th>Applicante</th>
-                            <th>Favorite Color</th>
-                            <th></th>
+                            <th>Assignement Title</th>
+                            <th>Submitted Date</th>
+                            <th>Status</th>
+                            <th>assignment marks</th>
+                            <th>obtained marks</th>
+                            <th>feedback</th>
                         </tr>
                     </thead>
                     <tbody>
                         {/* row 1 */}
                         {
-                            assignments.map(job => <>
-                                <tr key={job._id}>
-                                    <th>
-                                        <label>
-                                            <input type="checkbox" className="checkbox" />
-                                        </label>
-                                    </th>
+                            assignments.map((assignment, index) => <>
+                                <tr key={index}>
+                                    <th>{index + 1}</th>
                                     <td>
-                                        <div className="flex items-center gap-3">
-                                            <div className="avatar">
-                                                <div className="mask mask-squircle h-12 w-12">
-                                                    <img
-                                                        src={job.company_logo}
-                                                        alt="Avatar Tailwind CSS Component" />
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <div className="font-bold">{job.title}</div>
-                                                <div className="text-sm opacity-50">{job.location}</div>
-                                            </div>
-                                        </div>
+                                        <div className="font-bold">{assignment.title}</div>
                                     </td>
                                     <td>
-                                        {job.linkdin}
-                                        <br />
-                                        {job.github}
-                                        <br />
-                                        {job.resume}
-                                        <br />
-                                        <span className="badge badge-ghost badge-sm">{job.application_email}</span>
+                                        <div className="font-bold">{assignment.submittedAt}</div>
+
                                     </td>
-                                    <td>Purple</td>
+                                    <td>
+                                        <div className="font-bold">{assignment.status}</div>
+
+                                    </td>
+                                    <td>
+                                        <div className="font-bold">{assignment.marks}</div>
+                                    </td>
+                                    <td>
+                                        <div className="font-bold">Null</div>
+                                    </td>
                                     <th>
-                                        <button className="btn btn-ghost btn-xs">X</button>
+                                        <div className="font-bold">feedback</div>
+
                                     </th>
                                 </tr>
                             </>)

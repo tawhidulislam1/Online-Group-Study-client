@@ -13,6 +13,7 @@ import Error from "../Error/Error";
 import DoAsssignment from "../Assignment/DoAsssignment";
 import PrivateRouter from "./PrivateRouter";
 import MyAttemptedAssignments from "../Assignment/myAttemptedAssignments";
+import PendingAssigment from "../Assignment/PendingAssigment";
 
 const router = createBrowserRouter([
     {
@@ -57,6 +58,10 @@ const router = createBrowserRouter([
             {
                 path: '/attempted-assignments',
                 element: <PrivateRouter><MyAttemptedAssignments></MyAttemptedAssignments></PrivateRouter>,
+            },
+            {
+                path: '/peding-assignments',
+                element: <PrivateRouter><PendingAssigment></PendingAssigment></PrivateRouter>,
             },
         ]
     },

@@ -20,6 +20,7 @@ const Header = () => {
     const links = <>
         <li><NavLink to={"/"}>Home</NavLink></li>
         <li><NavLink to={"/assignment"}>Assignment</NavLink></li>
+        <li><NavLink to={"/peding-assignments"}>Pending Assignment</NavLink></li>
     </>
     return (
 
@@ -75,7 +76,7 @@ const Header = () => {
                             <ul
                                 tabIndex={0}
                                 className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                                
+
                                 <li><Link to={'/create-assignment'}>Create Assignment</Link></li>
                                 <li><Link to={'/attempted-assignments'}>My Attempted Assignments</Link></li>
                             </ul>
