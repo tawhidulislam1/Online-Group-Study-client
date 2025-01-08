@@ -1,14 +1,19 @@
 import { useContext, useEffect, useState } from "react";
 import AuthContext from "../Context/AuthContext";
-import axios from "axios";
+import useAxiosSecure from "../Hook/useAxiosSecure";
 
 const MyAttemptedAssignments = () => {
     const { user } = useContext(AuthContext)
     const [assignments, setAssignments] = useState([])
+    const axiosSecure = useAxiosSecure();
+
     useEffect(() => {
-        axios.get(`http://localhost:5000/assignment-post?email=${user.email}`)
-            .then(res => setAssignments(res.data))
-    }, [user.email])
+        axiosSecure.get(`/assignment-post?email=${user.email}`)
+            .then((res) => {
+                setAssignments(res.data);
+            })
+    }, [user.email, axiosSecure]);
+
     console.log(assignments);
     return (
         <div>

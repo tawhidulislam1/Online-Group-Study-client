@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import AuthContext from "./AuthContext";
 import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import auth from "../Firebase/Firebase.init";
+import axios from "axios";
 
 const GoogleProvider = new GoogleAuthProvider();
 // eslint-disable-next-line react/prop-types
@@ -23,8 +24,22 @@ const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         const unSubcribe = onAuthStateChanged(auth, (currentUser) => {
-            setLoading(false);
             setUser(currentUser);
+            if (currentUser?.email) {
+                const user = { email: currentUser.email }
+                axios.post('http://localhost:5000/jwt', user, { withCredentials: true })
+                    .then(res => {
+                        setLoading(false);
+                        console.log("login", res.data)
+                    })
+            }
+            else {
+                axios.post('http://localhost:5000/logout', {}, { withCredentials: true })
+                    .then(res => {
+                        setLoading(false);
+                        console.log("Logout", res.data)
+                    })
+            }
         });
         return () => {
             setLoading(true);

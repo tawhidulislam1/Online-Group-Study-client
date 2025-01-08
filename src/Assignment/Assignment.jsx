@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 
 const Assignment = () => {
     const [assignments, setAssignments] = useState([])
+    const [search, setSearch] = useState("")
     const navigate = useNavigate();
 
     const { user } = useContext(AuthContext)
@@ -15,8 +16,14 @@ const Assignment = () => {
             .then(res => setAssignments(res.data));
     }, [])
 
-
-
+    useEffect(() => {
+        fetch(`http://localhost:5000/assignment?serachParams=${search}`)
+            .then(res => res.json())
+            .then(data => {
+                setAssignments(data);
+            })
+    }, [search])
+    console.log(search);
     const handleDelete = (id, email) => {
         if (userEmail !== email) {
             Swal.fire({
@@ -73,8 +80,16 @@ const Assignment = () => {
         <div className="my-10">
             <div>
                 <h3 className="text-3xl text-center text-black font-bold">All Assignment</h3>
-                <div className="text-right">
-                    <Link to={'/create-assignment'} className="btn btn-neutral text-right">Create Assignment</Link>
+                <div className="text-center">
+                    <div className="flex justify-center items-center py-4">
+                        <input
+                            type="text"
+                            placeholder="Search..."
+                            className="input input-bordered text-black w-64 px-4 py-2"
+                            onChange={(e) => setSearch(e.target.value)} // Handle input change (e.g., search logic)
+                        />
+                        <button className="btn btn-primary ml-2">Search</button>
+                    </div>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
                     {
