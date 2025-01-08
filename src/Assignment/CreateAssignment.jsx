@@ -29,7 +29,7 @@ const CreateAssignment = () => {
         }
 
         console.log(initialData);
-        fetch('http://localhost:5000/assignment', {
+        fetch('https://online-group-study-server-bay.vercel.app/assignment', {
             method: "POST",
             headers: {
                 "content-type": "application/json"

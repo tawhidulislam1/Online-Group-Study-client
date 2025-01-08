@@ -12,12 +12,12 @@ const Assignment = () => {
     const { user } = useContext(AuthContext)
     const userEmail = user?.email
     useEffect(() => {
-        axios.get('http://localhost:5000/assignment')
+        axios.get('https://online-group-study-server-bay.vercel.app/assignment')
             .then(res => setAssignments(res.data));
     }, [])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/assignment?serachParams=${search}`)
+        fetch(`https://online-group-study-server-bay.vercel.app/assignment?serachParams=${search}`)
             .then(res => res.json())
             .then(data => {
                 setAssignments(data);
@@ -44,7 +44,7 @@ const Assignment = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/assignment/${id}`, {
+                fetch(`https://online-group-study-server-bay.vercel.app/assignment/${id}`, {
                     method: "DELETE",
                 })
                     .then(res => res.json())

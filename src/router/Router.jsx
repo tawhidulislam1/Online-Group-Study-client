@@ -43,17 +43,17 @@ const router = createBrowserRouter([
             {
                 path: '/assignment-details/:id',
                 element: <PrivateRouter><AssignmentDetails></AssignmentDetails></PrivateRouter>,
-                loader: ({ params }) => fetch(`http://localhost:5000/assignment/${params.id}`)
+                loader: ({ params }) => fetch(`https://online-group-study-server-bay.vercel.app/assignment/${params.id}`)
             },
             {
                 path: '/update-assingment/:id',
                 element: <PrivateRouter><UpdateAssignment></UpdateAssignment></PrivateRouter>,
-                loader: ({ params }) => fetch(`http://localhost:5000/assignment/${params.id}`)
+                loader: ({ params }) => fetch(`https://online-group-study-server-bay.vercel.app/assignment/${params.id}`)
             },
             {
                 path: '/take-assignment/:id',
                 element: <PrivateRouter><DoAsssignment></DoAsssignment></PrivateRouter>,
-                loader: ({ params }) => fetch(`http://localhost:5000/assignment/${params.id}`)
+                loader: ({ params }) => fetch(`https://online-group-study-server-bay.vercel.app/assignment/${params.id}`)
             },
             {
                 path: '/attempted-assignments',

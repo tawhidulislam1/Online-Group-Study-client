@@ -28,7 +28,7 @@ const UpdateAssignment = () => {
             });
             return;
         }
-        fetch(`http://localhost:5000/assignment/${_id}`, {
+        fetch(`https://online-group-study-server-bay.vercel.app/assignment/${_id}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json"

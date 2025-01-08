@@ -11,7 +11,7 @@ const PendingAssigment = () => {
     const [selectedAssignment, setSelectedAssignment] = useState(null);
     const navigate = useNavigate()
     useEffect(() => {
-        axios.get(`http://localhost:5000/assignment-get?status=pending`)
+        axios.get(`https://online-group-study-server-bay.vercel.app/assignment-get?status=pending`)
             .then(res => setAssignments(res.data))
             .catch(error => console.error("Error fetching assignments:", error));
     }, []);
@@ -32,7 +32,7 @@ const PendingAssigment = () => {
             obtainMarks: obtainMarks,
         };
 
-        fetch(`http://localhost:5000/assignment-post/${selectedAssignment._id}`, {
+        fetch(`https://online-group-study-server-bay.vercel.app/assignment-post/${selectedAssignment._id}`, {
             method: "PATCH",
             headers: {
                 "content-type": "application/json"

@@ -18,7 +18,7 @@ const DoAsssignment = () => {
         console.log(initialData);
 
 
-        fetch('http://localhost:5000/assignment-post', {
+        fetch('https://online-group-study-server-bay.vercel.app/assignment-post', {
             method: "POST",
             headers: {
                 "content-type": "application/json"
