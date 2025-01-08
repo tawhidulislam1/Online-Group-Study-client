@@ -17,7 +17,17 @@ const UpdateAssignment = () => {
         console.log(formData);
         const initialData = Object.fromEntries(formData.entries())
         console.log(initialData);
+        const marks = initialData.marks;
 
+        if (marks > 200) {
+            Swal.fire({
+                position: "top-center",
+                icon: "error",
+                title: "Marks cannot be more than 200",
+                showConfirmButton: true,
+            });
+            return;
+        }
         fetch(`http://localhost:5000/assignment/${_id}`, {
             method: "PUT",
             headers: {
