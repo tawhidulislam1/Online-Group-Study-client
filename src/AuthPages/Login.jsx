@@ -2,7 +2,7 @@ import Lottie from "lottie-react";
 import registerAnimationData from "../assets/login.json"
 import { useContext, useState } from "react";
 import AuthContext from "../Context/AuthContext";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
 
@@ -86,6 +86,8 @@ const Login = () => {
                             <button className="btn btn-primary">Login</button>
                         </div>
                     </form>
+                    <h2  className=" text-center" >Dont Have Any Account? <Link className="link" to={"/register"}>Create Account</Link></h2>
+                    <div className="divider"></div>
                     <button className="btn mt-4" onClick={handleGoogleLogin}>
                         <FaGoogle className="mr-2" /> Sign Up with Google
                     </button>

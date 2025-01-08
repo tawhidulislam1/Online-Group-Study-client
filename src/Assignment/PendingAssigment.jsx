@@ -3,6 +3,7 @@ import AuthContext from "../Context/AuthContext";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const PendingAssigment = () => {
     const { user } = useContext(AuthContext);
@@ -18,6 +19,10 @@ const PendingAssigment = () => {
         e.preventDefault()
         const form = e.target;
         const obtainMarks = form.obtainMarks.value;
+        if (obtainMarks >= selectedAssignment.marks) {
+            toast.error('Given Marks is Bigger Then Main Marks')
+            return
+        }
         const feedback = form.feedback.value;
         const updateStatus = "Complete";
         console.log(updateStatus, obtainMarks);
@@ -43,6 +48,8 @@ const PendingAssigment = () => {
                         icon: "success"
                     });
                     setSelectedAssignment(null);
+                    const remaning = assignments.filter(cof => cof._id !== selectedAssignment._id);
+                    setAssignments(remaning)
                     navigate("/peding-assignments")
                 }
                 console.log(data);
