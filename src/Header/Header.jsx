@@ -57,7 +57,7 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end pr-6">
-                {/* <div>
+                <div>
                     <label className="grid cursor-pointer place-items-center">
                         <input
                             type="checkbox"
@@ -92,7 +92,7 @@ const Header = () => {
                             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                         </svg>
                     </label>
-                </div> */}
+                </div>
                 {user && user?.email ? (
                     <>
                         <button onClick={handleLogOut} className="btn">Logout</button>

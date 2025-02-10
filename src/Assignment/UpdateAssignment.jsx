@@ -50,7 +50,7 @@ const UpdateAssignment = () => {
 
     }
     return (
-        <div className="max-w-2xl mx-auto mt-10 p-8 bg-red-500 text-white shadow-lg rounded-lg">
+        <div className="max-w-2xl mx-auto mt-10 p-8 bg-[#5d4e50] text-white shadow-lg rounded-lg">
             <h2 className="text-2xl font-bold text-center mb-6">Update Assignment</h2>
             <form onSubmit={handleUpdate}>
                 {/* Title */}
@@ -139,7 +139,7 @@ const UpdateAssignment = () => {
 
                 {/* Submit Button */}
                 <div className="text-center">
-                    <button className="btn btn-primary w-full">Update Assignment</button>
+                    <button className="btn bg-[#f8c312] w-full">Update Assignment</button>
                 </div>
             </form>
         </div>

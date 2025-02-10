@@ -76,6 +76,10 @@ const Assignment = () => {
         return navigate(`/update-assingment/${id}`);
 
     }
+    const handleSort = () => {
+        const sortedCampaigns = [...assignments].sort((a, b) => a.marks - b.marks);
+        setAssignments(sortedCampaigns);
+    };;
     return (
         <div className="my-10">
             <div>
@@ -88,8 +92,16 @@ const Assignment = () => {
                             className="input input-bordered text-black w-64 px-4 py-2"
                             onChange={(e) => setSearch(e.target.value)} // Handle input change (e.g., search logic)
                         />
-                        <button className="btn btn-primary ml-2">Search</button>
+                        <button className="btn bg-[#f8c312] ml-2">Search</button>
                     </div>
+                </div>
+                <div className="flex justify-end mb-4">
+                    <button
+                        onClick={handleSort}
+                        className="px-4 py-2 text-xs bg-blue-500 text-white rounded hover:bg-blue-600"
+                    >
+                        Sort by Minimum marks
+                    </button>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
                     {
