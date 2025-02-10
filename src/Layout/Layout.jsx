@@ -5,9 +5,11 @@ import Footer from "../Footer/Footer";
 
 const Layout = () => {
     return (
-        <div className="max-w-7xl mx-auto">
+        <div  className="max-w-7xl mx-auto">
             <Header></Header>
-            <Outlet></Outlet>
+            <div className="mt-24">
+                <Outlet></Outlet>
+            </div>
             <Footer></Footer>
         </div>
     );

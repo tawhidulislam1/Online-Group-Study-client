@@ -24,8 +24,8 @@ const Header = () => {
     </>
     return (
 
-        <div className="navbar bg-base-100">
-            <div className="navbar-start">
+        <div className="navbar bg-base-100 fixed w-full top-0 left-0 h-[90px] z-50">
+            <div className="navbar-start pl-6">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
                         <svg
@@ -47,17 +47,17 @@ const Header = () => {
                         {links}
                     </ul>
                 </div>
-                <a className=" text-xl w-28">
+                <Link to={'/'} className=" text-xl w-28">
                     <img src={logo} className="rounded-full" alt="" />
-                </a>
+                </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
                     {links}
                 </ul>
             </div>
-            <div className="navbar-end">
-                <div>
+            <div className="navbar-end pr-6">
+                {/* <div>
                     <label className="grid cursor-pointer place-items-center">
                         <input
                             type="checkbox"
@@ -92,7 +92,7 @@ const Header = () => {
                             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                         </svg>
                     </label>
-                </div>
+                </div> */}
                 {user && user?.email ? (
                     <>
                         <button onClick={handleLogOut} className="btn">Logout</button>
