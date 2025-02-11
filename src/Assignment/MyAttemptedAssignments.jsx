@@ -22,8 +22,7 @@ const MyAttemptedAssignments = () => {
                     {/* head */}
                     <thead>
                         <tr>
-                            <th> #
-                            </th>
+                            <th> #</th>
                             <th>Assignement Title</th>
                             <th>Submitted Date</th>
                             <th>Status</th>
@@ -39,7 +38,7 @@ const MyAttemptedAssignments = () => {
                                 <tr key={index}>
                                     <th>{index + 1}</th>
                                     <td>
-                                        <div className="font-bold">{assignment.title}</div>
+                                        <div className="font-bold  dark:text-slate-200">{assignment.title}</div>
                                     </td>
                                     <td>
                                         <div className="font-bold">{assignment.submittedAt}</div>

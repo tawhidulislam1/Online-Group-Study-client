@@ -61,14 +61,14 @@ const UpdateAssignment = () => {
                         defaultValue={title}
                         name="title"
                         placeholder="Enter assignment title"
-                        className="input text-black input-bordered w-full"
+                        className="input text-black input-bordered w-full dark:bg-slate-200"
                     />
                     <input
                         type="hidden"
                         name="email"
                         value={user.email}
                         placeholder="Enter assignment title"
-                        className="input text-black input-bordered w-full"
+                        className="input text-black input-bordered w-full dark:bg-slate-200"
                     />
                 </div>
 
@@ -79,7 +79,7 @@ const UpdateAssignment = () => {
                         name="description"
                         defaultValue={description}
                         placeholder="Enter assignment description"
-                        className="textarea  text-black textarea-bordered w-full"
+                        className="textarea  text-black textarea-bordered w-full dark:bg-slate-200"
                         rows="4"
                     ></textarea>
                 </div>
@@ -92,7 +92,7 @@ const UpdateAssignment = () => {
                         name="marks"
                         defaultValue={marks}
                         placeholder="Enter total marks"
-                        className="input  text-black input-bordered w-full"
+                        className="input  text-black input-bordered w-full dark:bg-slate-200"
                     />
                 </div>
 
@@ -104,7 +104,7 @@ const UpdateAssignment = () => {
                         name="thumbnailUrl"
                         defaultValue={thumbnailUrl}
                         placeholder="Enter thumbnail image URL"
-                        className="input text-black input-bordered w-full"
+                        className="input text-black input-bordered w-full dark:bg-slate-200"
                     />
                 </div>
 
@@ -113,7 +113,7 @@ const UpdateAssignment = () => {
                     <label className="label font-medium">Difficulty Level</label>
                     <select
                         name="difficulty" defaultValue={difficulty}
-                        className="select  text-black select-bordered w-full"
+                        className="select  text-black select-bordered w-full dark:bg-slate-200"
                     >
                         <option value="easy">Easy</option>
                         <option value="medium">Medium</option>
@@ -134,12 +134,12 @@ const UpdateAssignment = () => {
                         name="dueDate"
                         defaultValue={dueDate}
                         onChange={(e) => setDueDate(e.target.value)}
-                        className="input  text-black input-bordered w-full" />
+                        className="input  text-black input-bordered w-full dark:bg-slate-200" />
                 </div>
 
                 {/* Submit Button */}
                 <div className="text-center">
-                    <button className="btn bg-[#f8c312] w-full">Update Assignment</button>
+                    <button className="btn bg-[#f8c312] w-full dark:text-black">Update Assignment</button>
                 </div>
             </form>
         </div>

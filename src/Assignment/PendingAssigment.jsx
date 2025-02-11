@@ -74,13 +74,13 @@ const PendingAssigment = () => {
                             <tr key={assignment._id}>
                                 <th>{index + 1}</th>
                                 <td>
-                                    <div className="font-bold">{assignment.title}</div>
+                                    <div className="font-bold dark:text-slate-200">{assignment.title}</div>
                                 </td>
                                 <td>
-                                    <div className="font-bold">{user?.displayName}</div>
+                                    <div className="font-bold dark:text-slate-200">{user?.displayName}</div>
                                 </td>
                                 <td>
-                                    <div className="font-bold">{assignment.marks}</div>
+                                    <div className="font-bold dark:text-slate-200">{assignment.marks}</div>
                                 </td>
                                 <td>
                                     <button
@@ -119,7 +119,7 @@ const PendingAssigment = () => {
                                     name="feedback"
 
                                     placeholder="Enter Given Marks"
-                                    className="input text-black input-bordered w-full" required
+                                    className="input text-black input-bordered w-full dark:text-slate-200" required
                                 />
                             </div>
                             <button type="submit" className="btn btn-secondary">submit</button>

@@ -62,14 +62,14 @@ const CreateAssignment = () => {
                         type="text"
                         name="title"
                         placeholder="Enter assignment title"
-                        className="input text-black input-bordered w-full"
+                        className="input text-black input-bordered w-full  dark:bg-slate-200"
                     />
                     <input
                         type="hidden"
                         name="email"
                         value={user.email}
                         placeholder="Enter assignment title"
-                        className="input text-black input-bordered w-full"
+                        className="input text-black input-bordered w-full dark:bg-slate-200"
                     />
                 </div>
 
@@ -79,7 +79,7 @@ const CreateAssignment = () => {
                     <textarea
                         name="description"
                         placeholder="Enter assignment description"
-                        className="textarea  text-black textarea-bordered w-full"
+                        className="textarea  text-black textarea-bordered w-full dark:bg-slate-200"
                         rows="4"
                     ></textarea>
                 </div>
@@ -91,7 +91,7 @@ const CreateAssignment = () => {
                         type="number"
                         name="marks"
                         placeholder="Enter total marks"
-                        className="input  text-black input-bordered w-full"
+                        className="input  text-black input-bordered w-full dark:bg-slate-200"
                     />
                 </div>
 
@@ -102,7 +102,7 @@ const CreateAssignment = () => {
                         type="url"
                         name="thumbnailUrl"
                         placeholder="Enter thumbnail image URL"
-                        className="input text-black input-bordered w-full"
+                        className="input text-black input-bordered w-full dark:bg-slate-200"
                     />
                 </div>
 
@@ -111,7 +111,7 @@ const CreateAssignment = () => {
                     <label className="label font-medium">Difficulty Level</label>
                     <select
                         name="difficulty"
-                        className="select  text-black select-bordered w-full"
+                        className="select  text-black select-bordered w-full dark:bg-slate-200"
                     >
                         <option value="easy">Easy</option>
                         <option value="medium">Medium</option>
@@ -131,12 +131,12 @@ const CreateAssignment = () => {
                     <input type="date" value={dueDate}
                         name="dueDate"
                         onChange={(e) => setDueDate(e.target.value)}
-                        className="input  text-black input-bordered w-full" />
+                        className="input  text-black input-bordered w-full dark:bg-slate-200" />
                 </div>
 
                 {/* Submit Button */}
                 <div className="text-center">
-                    <button className="btn bg-[#f8c312] w-full">Submit Assignment</button>
+                    <button className="btn bg-[#f8c312] w-full dark:text-black">Submit Assignment</button>
                 </div>
             </form>
         </div>

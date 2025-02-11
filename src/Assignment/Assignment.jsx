@@ -83,7 +83,7 @@ const Assignment = () => {
     return (
         <div className="my-10">
             <div>
-                <h3 className="text-3xl text-center text-black font-bold">All Assignment</h3>
+                <h3 className="text-3xl text-center text-black font-bold  dark:text-white">All Assignment</h3>
                 <div className="text-center">
                     <div className="flex justify-center items-center py-4">
                         <input
@@ -92,7 +92,7 @@ const Assignment = () => {
                             className="input input-bordered text-black w-64 px-4 py-2"
                             onChange={(e) => setSearch(e.target.value)} // Handle input change (e.g., search logic)
                         />
-                        <button className="btn bg-[#f8c312] ml-2">Search</button>
+                        <button className="btn bg-[#f8c312] ml-2  dark:text-white">Search</button>
                     </div>
                 </div>
                 <div className="flex justify-end mb-4">
@@ -116,11 +116,11 @@ const Assignment = () => {
                                     />
                                 </figure>
                                 <div className="card-body p-4">
-                                    <h2 className="card-title text-lg font-semibold">{assignment.title}</h2>
-                                    <p className="text-sm text-gray-600">
+                                    <h2 className="card-title text-lg font-semibold  dark:text-white">{assignment.title}</h2>
+                                    <p className="text-sm text-gray-600  dark:text-slate-200">
                                         <span className="font-medium">Marks:</span> {assignment.marks}
                                     </p>
-                                    <p className="text-sm text-gray-600">
+                                    <p className="text-sm text-gray-600 dark:text-slate-200">
                                         <span className="font-medium">Difficulty:</span>{' '}
                                         <span
                                             className={`badge ${assignment.difficulty === 'easy'

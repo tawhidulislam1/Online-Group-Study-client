@@ -51,7 +51,7 @@ const DoAsssignment = () => {
                         type="text"
                         name="docslink"
                         placeholder="Enter assignment title"
-                        className="input text-black input-bordered w-full"
+                        className="input text-black input-bordered w-full dark:bg-slate-200"
                         required
                     />
                     <input
@@ -59,14 +59,14 @@ const DoAsssignment = () => {
                         name="email"
                         value={userEmail}
                         placeholder="Enter assignment title"
-                        className="input text-black input-bordered w-full"
+                        className="input text-black input-bordered w-full dark:bg-slate-200"
                     />
                     <input
                         type="hidden"
                         name="job_id"
                         value={id}
                         placeholder="Enter assignment title"
-                        className="input text-black input-bordered w-full"
+                        className="input text-black input-bordered w-full dark:bg-slate-200"
                     />
                 </div>
                 {/* Description */}
@@ -75,7 +75,7 @@ const DoAsssignment = () => {
                     <textarea
                         name="quicknote"
                         placeholder="Enter assignment description"
-                        className="textarea  text-black textarea-bordered w-full"
+                        className="textarea  text-black textarea-bordered w-full dark:bg-slate-200"
                         rows="4"
                         required
                     ></textarea>

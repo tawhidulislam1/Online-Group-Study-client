@@ -43,9 +43,9 @@ const Header = () => {
         localStorage.setItem("theme", newTheme);
     };
     const links = <>
-        <li><NavLink to={"/"}>Home</NavLink></li>
-        <li><NavLink to={"/assignment"}>Assignment</NavLink></li>
-        <li><NavLink to={"/peding-assignments"}>Pending Assignment</NavLink></li>
+        <li><NavLink to={"/"} className={' dark:text-slate-200'}>Home</NavLink></li>
+        <li><NavLink to={"/assignment"}className={' dark:text-slate-200'}>Assignment</NavLink></li>
+        <li><NavLink to={"/peding-assignments"}className={' dark:text-slate-200'}>Pending Assignment</NavLink></li>
     </>
     return (
 
