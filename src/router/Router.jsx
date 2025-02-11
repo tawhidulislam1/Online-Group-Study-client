@@ -14,6 +14,7 @@ import DoAsssignment from "../Assignment/DoAsssignment";
 import PrivateRouter from "./PrivateRouter";
 import MyAttemptedAssignments from "../Assignment/myAttemptedAssignments";
 import PendingAssigment from "../Assignment/PendingAssigment";
+import About from "../About/About";
 
 const router = createBrowserRouter([
     {
@@ -62,6 +63,10 @@ const router = createBrowserRouter([
             {
                 path: '/peding-assignments',
                 element: <PrivateRouter><PendingAssigment></PendingAssigment></PrivateRouter>,
+            },
+            {
+                path: '/about',
+                element: <About></About>,
             },
         ]
     },
