@@ -1,6 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/images.png";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import AuthContext from "../Context/AuthContext";
 import { toast } from "react-toastify";
 
@@ -17,6 +17,31 @@ const Header = () => {
                 console.error("Logout failed:", error);
             });
     }
+    const [isDarkMode, setIsDarkMode] = useState(false);
+
+    useEffect(() => {
+        // Check for saved theme in localStorage
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme === "dark") {
+            document.documentElement.classList.add("dark");
+            setIsDarkMode(true);
+        }
+    }, []);
+
+    const handleThemeToggle = () => {
+        const newTheme = isDarkMode ? "light" : "dark";
+        setIsDarkMode(!isDarkMode);
+
+        // Apply theme to the root element
+        if (newTheme === "dark") {
+            document.documentElement.classList.add("dark");
+        } else {
+            document.documentElement.classList.remove("dark");
+        }
+
+        // Save preference in localStorage
+        localStorage.setItem("theme", newTheme);
+    };
     const links = <>
         <li><NavLink to={"/"}>Home</NavLink></li>
         <li><NavLink to={"/assignment"}>Assignment</NavLink></li>
@@ -62,7 +87,10 @@ const Header = () => {
                         <input
                             type="checkbox"
                             value="dark"
-                            className="toggle theme-controller bg-base-content col-span-2 col-start-1 row-start-1" />
+                            className="toggle theme-controller bg-base-content col-span-2 col-start-1"
+                            checked={isDarkMode}
+                            onChange={handleThemeToggle}
+                        />
                         <svg
                             className="stroke-base-100 fill-base-100 col-start-1 row-start-1"
                             xmlns="http://www.w3.org/2000/svg"
@@ -75,8 +103,7 @@ const Header = () => {
                             strokeLinecap="round"
                             strokeLinejoin="round">
                             <circle cx="12" cy="12" r="5" />
-                            <path
-                                d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" />
+                            <path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" />
                         </svg>
                         <svg
                             className="stroke-base-100 fill-base-100 col-start-2 row-start-1"

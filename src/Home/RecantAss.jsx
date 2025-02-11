@@ -74,7 +74,7 @@ const RecantAss = () => {
     }
     return (
         <div className="my-12">
-            <h2 className="text-5xl font-bold text-black text-center mb-10">Lastest Assignment</h2>
+            <h2 className="text-5xl font-bold text-black text-center mb-10 dark:text-white">Lastest Assignment</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
                 {
                     assignments.map(assignment => <div key={assignment._id}>
@@ -88,11 +88,11 @@ const RecantAss = () => {
                                 />
                             </figure>
                             <div className="card-body p-4">
-                                <h2 className="card-title text-lg font-semibold">{assignment.title}</h2>
-                                <p className="text-sm text-gray-600">
+                                <h2 className="card-title text-lg dark:text-white font-semibold capitalize">{assignment.title}</h2>
+                                <p className="text-sm text-gray-600 dark:text-slate-200">
                                     <span className="font-medium">Marks:</span> {assignment.marks}
                                 </p>
-                                <p className="text-sm text-gray-600">
+                                <p className="text-sm text-gray-600 dark:text-slate-200">
                                     <span className="font-medium">Difficulty:</span>{' '}
                                     <span
                                         className={`badge ${assignment.difficulty === 'easy'

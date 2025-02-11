@@ -1,11 +1,11 @@
 const Newsletter = () => {
     return (
-        <div className="bg-gray-100 py-12 px-4 sm:px-6 lg:px-8 my-12">
+        <div className="bg-gray-100 py-12 px-4 sm:px-6 lg:px-8 my-12  dark:bg-base-200 ">
             <div className="max-w-3xl mx-auto text-center">
-                <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl  dark:text-white">
                     📬 Subscribe to Our Newsletter
                 </h2>
-                <p className="mt-4 text-lg text-gray-600">
+                <p className="mt-4 text-lg text-gray-600  dark:text-slate-200">
                     Stay updated with the latest assignments, news, and exclusive offers!
                 </p>
 
